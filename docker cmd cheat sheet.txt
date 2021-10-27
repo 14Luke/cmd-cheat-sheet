@@ -1,0 +1,15 @@
+docker cmd
+----------
+
+Image
+-----
+ docker images
+ docker build -t [username/]<image-name>[:tag] <dockerfile-path>
+ docker tag <image-name> <new-image-name>
+ docker history [username/]<image-name>[:tag]
+ docker rmi [username/]<image-name>[:tag]
+ docker save -o <filename>.tar --- export image
+ docker load -i <filename>.tar --- import image
+ docker push [registry/][username/]<image-name>[:tag]
+ docker logout
+ docker login
