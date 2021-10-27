@@ -1,6 +1,19 @@
 docker cmd
 ----------
 
+RUN
+---
+ docker network create mynetwork
+ docker run --name mywildfly-net -d --net mynetwork -p 8080:8080 jboss/wildfly
+ docker run --name mywildfly-volume -d -v myfolder/:/opt/jboss/wildfly/standalone/deployments/ -p 8080:8080 jboss/wildflyjboss/wildfly
+ docker run --rm -it -v $PWD/java-app:/app -v $PWD/.m2:/root/.m2 -w /app maven:3.6-alpine mvn -B -DskipTests clean package
+ docker logs -f mywildfly
+ docker stop [container-name|container-id]
+ docker rm -f [container-name|container-id]
+ docker rm -f $(docker ps-aq)  --- remove all containers
+ docker rm $(docker ps -q -f “status=exited”)  --- remove all stopped containers
+ 
+ 
 Image
 -----
  docker images
