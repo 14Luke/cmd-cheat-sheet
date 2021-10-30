@@ -1,0 +1,27 @@
+Linux cmd
+--------------
+
+Users
+--------
+getent passwd | grep jack		> check user available or not
+getent passwd | wc -l		> count total user
+less /etc/passwd			> get user information
+groups				> check associated groups for user
+usermod -G root devuser		> add user to root group
+gpasswd -d devuser root		> remove user from a group
+userdel testuser			> delete user
+deluser --remove-home testuser	> delete everything related with user
+
+Number	Permission
+0	No permission
+1	Execute
+2	Write
+3	Execute and Write
+4	Read
+5	Read and Execute
+6	Read and Write
+7	Read, Write and Execute
+
+SSH
+-----
+ssh-keygen -t rsa -f <file-name>		> generate key pair

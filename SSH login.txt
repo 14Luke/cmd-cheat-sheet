@@ -1,0 +1,15 @@
+Create ssh key based login for user
+------------------------------------------------
+useradd devuser
+cd /home/devuser/
+mkdir .ssh
+touch authorized_keys
+cat "ssh-rsa AAAAB...........Z17/ root@container-test" >> authorized_keys
+chmod 600 authorized_keys
+chown devuser:devuser devuser/.ssh/ -R
+vim /etc/ssh/sshd_config ---> PasswordAuthentication no
+systemctl restart sshd
+
+Root permission for user
+----------------------------------
+usermod -G root devuser
