@@ -1,0 +1,15 @@
+Git
+----
+
+Git init
+---------
+git init
+git remote add origin http://jenkins.aqualeo.xyz:8090/app01jenkin/pipeline-maven.git
+git status
+git add Jenkinfile java-app/ jenkins/ .m2/
+git commit -m 'initial commit'
+git push origin master
+
+Git Branch
+--------------
+git branch
