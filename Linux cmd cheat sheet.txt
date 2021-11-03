@@ -11,6 +11,7 @@ usermod -G root devuser		> add user to root group
 gpasswd -d devuser root		> remove user from a group
 userdel testuser			> delete user
 deluser --remove-home testuser	> delete everything related with user
+newgrp docker 			> effective changes to group immediately
 
 Number	Permission
 0	No permission
@@ -24,4 +25,20 @@ Number	Permission
 
 SSH
 -----
-ssh-keygen -t rsa -f <file-name>		> generate key pair
+ssh-keygen -t rsa -f <file-name>				> generate key pair
+ssh -i devuser devuser@114.119.175.61 "/tmp/publish.sh"	> execute cmd in remote instance
+
+SCP
+-----
+scp -i devuser /tmp/.auth devuser@114.119.175.61:/tmp/.auth		> copy files to another server
+
+Text editor
+--------------
+sed -n '1p' /tmp/.auth		> get first line from a text file.
+
+
+Env variable
+----------------
+export IMAGE=$(sed -n '1p' /tmp/.auth)	> export first line of text file as env var
+export $IMAGE				> check env var
+printenv | less				> list env var

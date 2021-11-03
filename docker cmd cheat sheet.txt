@@ -26,3 +26,11 @@ Image
  docker push [registry/][username/]<image-name>[:tag]
  docker logout
  docker login
+
+Docker permission for another user
+-------------------------------------------------
+groupadd docker					> create gp if not exists
+usermod -aG docker $USER				> move user to gp
+newgrp docker 					> make changes effective immediately
+chown "$USER":"$USER" /home/"$USER"/.docker -R	> change docker permission
+chmod g+rwx "$HOME/.docker" -R			> add group permission to docker
